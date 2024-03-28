@@ -1,0 +1,91 @@
+<!-- <div>
+    <h1>Weather Application</h1>
+    <form>
+      <input type="text" name="cityName" placeholder="Enter a city name" [(ngModel)] = "city">
+      <button type="button" (click)="getWeather()">Get Weather</button>
+    </form>
+
+    <div *ngIf="weatherData">
+        <h2>{{weatherData.name}}</h2>
+       
+        <p>Temperature: {{ temperature }}</p>
+        <p>Humidity: {{ humidity }}</p>
+        <p>Weather Description: {{ description }}</p>
+        <p>Weather Feels Like: {{ feelsLike }}</p>
+    </div>
+</div> -->
+
+<div class="container">
+  <div class="weather-side">
+    <div class="weather-gradient"></div>
+    <div class="date-container">
+      <!-- <h2 class="date-dayname">Tuesday</h2> -->
+      <span class="date-day">{{ currenttime }}</span
+      ><i class="location-icon" data-feather="map-pin"></i
+      ><span class="location">{{ name }}</span>
+    </div>
+    <div class="weather-container">
+      <i class="weather-icon" data-feather="sun"></i>
+      <h1 class="weather-temp">{{ temperature }}°C</h1>
+      <h3 class="weather-desc">{{ description }}</h3>
+    </div>
+  </div>
+  <div class="info-side">
+    <div class="today-info-container">
+      <div class="today-info">
+        <div class="description">
+          <div class="min-temp">
+            <span class="title">MIN TEMP</span><span class="value">{{ mintemp }}°C</span>
+            <div class="clear"></div>
+          </div>
+          <div class="max-temp">
+            <span class="title">MAX TEMP</span><span class="value">{{ maxtemp }}°C</span>
+            <div class="clear"></div>
+          </div>
+          <div class="sunrise">
+          <span class="title">SUN RISE TIME</span><span class="value">{{ sunrise }}</span>
+          <div class="clear"></div>
+        </div>
+        <div class="sunset">
+          <span class="title">SUN SET TIME</span><span class="value">{{ sunset }}</span>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="week-container">
+      <ul class="week-list">
+        <li class="active">
+          <i class="day-icon" data-feather="sun"></i
+          ><span class="day-name">FEELS LIKE</span><span class="day-temp">{{ feelsLike }}°C</span>
+        </li>
+        <li>
+          <i class="day-icon" data-feather="cloud"></i
+          ><span class="day-name">HUMIDITY</span><span class="day-temp">{{ humidity }}</span>
+        </li>
+        <li>
+          <i class="day-icon" data-feather="cloud-snow"></i
+          ><span class="day-name">WIND</span><span class="day-temp">{{ wind }}</span>
+        </li>
+        <!-- <li>
+          <i class="day-icon" data-feather="cloud-rain"></i
+          ><span class="day-name">Fri</span><span class="day-temp">19°C</span>
+        </li> -->
+        <br>
+        <div class="clear"></div>
+        <div class="clear"></div>
+
+      </ul>
+    </div>
+
+    <div class="location-container">
+      <input class="location-button" type="text" id="CityName" class="form-control" placeholder="Enter a city name" [(ngModel)] = "city">
+      <div class="clear"></div>
+      <br>
+      <button class="location-button" type="button" (click)="getWeather()"> <i data-feather="map-pin"></i><span>Change location</span></button>
+    </div>
+
+  </div>
+</div>
+
+<!-- <button (click)="openModal()">Change location</button> -->
+<app-search-weather-modal *ngIf="showModal" (closeShowModal)="closeModal($event)"></app-search-weather-modal>
